@@ -31,7 +31,9 @@ app.get("/api", (req, res) => {
   res.send("API Response");
 });
 
-app.use('*',history('index.html', { root }));
+app.get('*', (req, res) => {
+  res.sendFile('index.html', { root });
+});
 
 const port= 5000
 app.listen(port,()=>console.log('server working'))
